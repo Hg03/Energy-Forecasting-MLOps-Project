@@ -50,7 +50,7 @@ By the end of **Lesson 4**, you will know how to host your PyPi repository and o
 
 If you want to grasp this lesson fully, we recommend you check out our previous lesson, which talks about designing a training pipeline that uses a feature store and an ML platform:
 
-## The goal of lessor 4
+## The goal of lesson 4
 
 This lesson will teach you how to use Airflow to orchestrate the three pipelines you have implemented so far.
 
