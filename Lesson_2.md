@@ -140,9 +140,9 @@ Using the function below, we perform the following steps:
 2. We get a reference to the given version of the feature view.
 3. We get a reference to the given version of the training data.
 4. We log to W&B all the metadata that relates to the used dataset.
-5.Now that we downloaded the dataset, we run it through the **prepare_data()**function. We will detail it a bit later. For now, notice that we split the data between train and test.
+5.Now that we downloaded the dataset, we run it through the **prepare_data()** function. We will detail it a bit later. For now, notice that we split the data between train and test.
 6 .We log to W&B all the metadata related to how we split the dataset, plus some basic statistics for every split, such as split size and features.
-**
+   
 Important observation:** Using W&B, you log all the metadata that describes how you extracted and prepared the data. By doing so, you can easily understand for every experiment the origin of its data.
 
 By using **run.use_artifact("<artifact_name>")**, you can link different artifacts between them. In our example, by calling **run.use_artifact(“energy_consumption_denmark_feature_view:latest”)** we linked this W&B run with an artifact created in a different W&B run.
