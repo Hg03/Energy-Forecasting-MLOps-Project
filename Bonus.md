@@ -1,4 +1,6 @@
-Course Lessons:
+# Behind the Scenes of an ‘Imperfect’ ML Project — Lessons and Insights
+
+## Course Lessons:
 
 1. [Batch Serving. Feature Stores. Feature Engineering Pipelines.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_1.md)
 2. [Training Pipelines. ML Platforms. Hyperparameter Tuning.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_2.md)
