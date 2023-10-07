@@ -426,11 +426,138 @@ But the concepts remain the same, which is the most crucial to understand.
 
 In the code snippet below, we did the following:
 
-    Loaded the predictions from the GCP bucket. All the predictions are aggregated in the predictions_monitoring.parquet file during the batch prediction step.
-    Prepared the structure of the predictions DataFrame.
-    Connected to the Hopsworks Feature Store.
-    Queried the Feature Store for data within the minimum and maximum predictions datetime edges. This is your GT. You want to get everything available based on your prediction's datetime window.
-    Prepared the structure of the GT DataFrame.
-    Merge the two DataFrames.
-    Where the GT is available, compute the MAPE metric. Out of simplicity, you will compute the MAPE metrics aggregated over all the time series.
-    Write the results back to the GCP bucket, which will be loaded & displayed by the frontend.
+1. Loaded the predictions from the GCP bucket. All the predictions are aggregated in the predictions_monitoring.parquet file during the batch prediction step.
+2. Prepared the structure of the predictions DataFrame.
+3. Connected to the Hopsworks Feature Store.
+4. Queried the Feature Store for data within the minimum and maximum predictions datetime edges. This is your GT. You want to get everything available based on your prediction's datetime window.
+5. Prepared the structure of the GT DataFrame.
+6. Merge the two DataFrames.
+7. Where the GT is available, compute the MAPE metric. Out of simplicity, you will compute the MAPE metrics aggregated over all the time series.
+8. Write the results back to the GCP bucket, which will be loaded & displayed by the frontend.
+
+```python
+def compute(feature_view_version: Optional[int] = None) -> None:
+    """Computes the metrics on the latest n_days of predictions.
+
+    Args:
+        feature_view_version: The version of the feature view to load data from the feature store. If None is provided, it will try to load it from the cached feature_view_metadata.json file.
+    """
+
+    if feature_view_version is None:
+        feature_view_metadata = utils.load_json("feature_view_metadata.json")
+        feature_view_version = feature_view_metadata["feature_view_version"]
+
+    logger.info("Loading old predictions...")
+    bucket = utils.get_bucket()
+    predictions = utils.read_blob_from(
+        bucket=bucket, blob_name=f"predictions_monitoring.parquet"
+    )
+    if predictions is None or len(predictions) == 0:
+        logger.info(
+            "Haven't found any predictions to compute the metrics on. Exiting..."
+        )
+
+        return
+    predictions.index = predictions.index.set_levels(
+        pd.to_datetime(predictions.index.levels[2], unit="h").to_period("H"), level=2
+    )
+    logger.info("Successfully loaded old predictions.")
+
+    logger.info("Connecting to the feature store...")
+    project = hopsworks.login(
+        api_key_value=settings.SETTINGS["FS_API_KEY"], project="energy_consumption"
+    )
+    fs = project.get_feature_store()
+    logger.info("Successfully connected to the feature store.")
+
+    logger.info("Loading latest data from feature store...")
+    predictions_min_datetime_utc = (
+        predictions.index.get_level_values("datetime_utc").min().to_timestamp()
+    )
+    predictions_max_datetime_utc = (
+        predictions.index.get_level_values("datetime_utc").max().to_timestamp()
+    )
+    logger.info(
+        f"Loading predictions from {predictions_min_datetime_utc} to {predictions_max_datetime_utc}."
+    )
+    _, latest_observations = data.load_data_from_feature_store(
+        fs,
+        feature_view_version,
+        start_datetime=predictions_min_datetime_utc,
+        end_datetime=predictions_max_datetime_utc,
+    )
+    logger.info("Successfully loaded latest data from feature store.")
+
+    if len(latest_observations) == 0:
+        logger.info(
+            "Haven't found any new ground truths to compute the metrics on. Exiting..."
+        )
+
+        return
+
+    logger.info("Computing metrics...")
+    predictions = predictions.rename(
+        columns={"energy_consumption": "energy_consumption_predictions"}
+    )
+    latest_observations = latest_observations.rename(
+        columns={"energy_consumption": "energy_consumption_observations"}
+    )
+
+    predictions["energy_consumption_observations"] = np.nan
+    predictions.update(latest_observations)
+
+    # Compute metrics only on data points that have ground truth.
+    predictions = predictions.dropna(subset=["energy_consumption_observations"])
+    if len(predictions) == 0:
+        logger.info(
+            "Haven't found any new ground truths to compute the metrics on. Exiting..."
+        )
+
+        return
+
+    mape_metrics = predictions.groupby("datetime_utc").apply(
+        lambda point_in_time: mean_absolute_percentage_error(
+            point_in_time["energy_consumption_observations"],
+            point_in_time["energy_consumption_predictions"],
+            symmetric=False,
+        )
+    )
+    mape_metrics = mape_metrics.rename("MAPE")
+    metrics = mape_metrics.to_frame()
+    logger.info("Successfully computed metrics...")
+
+    logger.info("Saving new metrics...")
+    utils.write_blob_to(
+        bucket=bucket,
+        blob_name=f"metrics_monitoring.parquet",
+        data=metrics,
+    )
+    latest_observations = latest_observations.rename(
+        columns={"energy_consumption_observations": "energy_consumption"}
+    )
+    utils.write_blob_to(
+        bucket=bucket,
+        blob_name=f"y_monitoring.parquet",
+        data=latest_observations[["energy_consumption"]],
+    )
+    logger.info("Successfully saved new metrics.")
+```
+
+The function defined above will act as its own task in the Airflow DAG. It will be called every time the ML pipeline is running. Thus, every hour, it will look for new matches between a prediction and a GT, compute the MAPE metric and upload it to GCS.
+
+Read **Lesson 6** to see how you can display the results from the GCP bucket in a beautiful UI using Streamlit and FastAPI.
+
+## Conclusion
+
+Congratulations! You finished the **fifth lesson** from the **Full Stack 7-Steps MLOps Framework course**. It means you are close to knowing how to build an end-to-end ML system using MLOps good practices.
+
+In this lesson, you learned how to:
+
+- use GE to build a data validation suit that tests your data quality and integrity,
+- understand why ML monitoring is essential,
+- build your own ML monitoring system to track model performance in real time.
+
+Now that you understand the power of taking control of your data and ML system, you can sleep like a baby at night knowing that everything is working well or if not; you can quickly diagnose the issue.
+
+Check out Lesson 6 to learn how to use your predictions and monitoring metrics from your GCP bucket to build a web app using **FastAPI** and **Streamlit**.
+
