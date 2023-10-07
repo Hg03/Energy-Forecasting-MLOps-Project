@@ -16,6 +16,28 @@ This course targets mid/advanced machine learning engineers who want to level up
 - Conclusion
 - References
 
+## Course Introduction
+
+**At the end of this 7 lessons course, you will know how to:**
+
+- design a batch-serving architecture
+- use Hopsworks as a feature store
+- design a feature engineering pipeline that reads data from an API
+- build a training pipeline with hyper-parameter tunning
+- use W&B as an ML Platform to track your experiments, models, and metadata
+- implement a batch prediction pipeline
+- use Poetry to build your own Python packages
+- deploy your own private PyPi server
+- orchestrate everything with Airflow
+- use the predictions to code a web app using FastAPI and Streamlit
+- use Docker to containerize your code
+- use Great Expectations to ensure data validation and integrity
+- monitor the performance of the predictions over time
+- deploy everything to GCP
+- build a CI/CD pipeline using GitHub Actions
+
+If that sounds like a lot, don't worry. After you cover this course, you will understand everything I said before. Most importantly, you will know WHY I used all these tools and how they work together as a system.
+
 ## Course Lessons:
 
 1. [Batch Serving. Feature Stores. Feature Engineering Pipelines.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_1.md)
