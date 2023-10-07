@@ -80,14 +80,14 @@ The course consists of 7 lessons hosted on Medium Towards Data Science publicati
 
 Here is an [article presenting a high-level overview](https://pub.towardsai.net/the-full-stack-7-steps-mlops-framework-6599a0c6e295) of all the components you will build during the course.
 
-1. [Batch Serving. Feature Stores. Feature Engineering Pipelines.](https://medium.com/towards-data-science/a-framework-for-building-a-production-ready-feature-engineering-pipeline-f0b29609b20f)
-2. [Training Pipelines. ML Platforms. Hyperparameter Tuning.](https://medium.com/towards-data-science/a-guide-to-building-effective-training-pipelines-for-maximum-results-6fdaef594cee)
-3. [Batch Prediction Pipeline. Package Python Modules with Poetry.](https://medium.com/towards-data-science/unlock-the-secret-to-efficient-batch-prediction-pipelines-using-python-a-feature-store-and-gcs-17a1462ca489)
-4. [Private PyPi Server. Orchestrate Everything with Airflow.](https://towardsdatascience.com/unlocking-mlops-using-airflow-a-comprehensive-guide-to-ml-system-orchestration-880aa9be8cff)
-5. [Data Validation for Quality and Integrity using GE. Model Performance Continuous Monitoring.](https://towardsdatascience.com/ensuring-trustworthy-ml-systems-with-data-validation-and-real-time-monitoring-89ab079f4360)
-6. [Consume and Visualize your Model's Predictions using FastAPI and Streamlit. Dockerize Everything.](https://towardsdatascience.com/fastapi-and-streamlit-the-python-duo-you-must-know-about-72825def1243)
-7. [Deploy All the ML Components to GCP. Build a CI/CD Pipeline Using Github Actions.](https://towardsdatascience.com/seamless-ci-cd-pipelines-with-github-actions-on-gcp-your-tools-for-effective-mlops-96f676f72012)
-8. [\[Bonus\] Behind the Scenes of an ‘Imperfect’ ML Project — Lessons and Insights.](https://towardsdatascience.com/imperfections-unveiled-the-intriguing-reality-behind-our-mlops-course-creation-6ff7d52ecb7e)
+1. [Batch Serving. Feature Stores. Feature Engineering Pipelines.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_1.md)
+2. [Training Pipelines. ML Platforms. Hyperparameter Tuning.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_2.md)
+3. [Batch Prediction Pipeline. Package Python Modules with Poetry.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_3.md)
+4. [Private PyPi Server. Orchestrate Everything with Airflow.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_4.md)
+5. [Data Validation for Quality and Integrity using GE. Model Performance Continuous Monitoring.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_5.md)
+6. [Consume and Visualize your Model's Predictions using FastAPI and Streamlit. Dockerize Everything.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_6.md)
+7. [Deploy All the ML Components to GCP. Build a CI/CD Pipeline Using Github Actions.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_7.md)
+8. [\[Bonus\] Behind the Scenes of an ‘Imperfect’ ML Project — Lessons and Insights.](https://github.com/Hg03/mlops-paul/blob/main/Bonus.md)
 
 ---------
 
