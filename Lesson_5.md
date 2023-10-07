@@ -38,6 +38,13 @@ This course targets mid/advanced machine learning engineers who want to level up
 
 If that sounds like a lot, don't worry. After you cover this course, you will understand everything I said before. Most importantly, you will know WHY I used all these tools and how they work together as a system.
 
+By the end of the course, you will know how to implement the diagram below. Don't worry if something doesn't make sense to you. I will explain everything in detail.
+
+![image](https://github.com/Hg03/mlops-paul/assets/69637720/bc9ee26a-09db-411b-831f-dabc0a5c818f)
+
+By the end of Lesson 5, you will know how to use Great Expectations to validate the integrity and quality of your data. Also, you will understand how to implement a monitoring component on top of your ML system.
+
+
 ## Course Lessons:
 
 1. [Batch Serving. Feature Stores. Feature Engineering Pipelines.](https://github.com/Hg03/mlops-paul/blob/main/Lesson_1.md)
