@@ -52,21 +52,21 @@ If you are unsure if this course is for you, [here is an article presenting a hi
 
 # 🤔 1. What You Will Learn <a name=learn></a>
 **At the end of this 7 lessons course, you will know how to:**
-* design a batch-serving architecture
-* use Hopsworks as a feature store
-* design a feature engineering pipeline that reads data from an API
-* build a training pipeline with hyper-parameter tunning
-* use W&B as an ML Platform to track your experiments, models, and metadata
+* design a **batch-serving architecture**
+* use **Hopsworks** as a **feature store**
+* design a **feature engineering pipeline** that reads data from an API
+* build a **training pipeline** with **hyper-parameter tunning**
+* use **W&B** as an ML Platform to track your experiments, models, and metadata
 * implement a batch prediction pipeline
-* use Poetry to build your own Python packages
-* deploy your own private PyPi server
-* orchestrate everything with Airflow
-* use the predictions to code a web app using FastAPI and Streamlit
-* use Docker to containerize your code
-* use Great Expectations to ensure data validation and integrity
+* use **Poetry** to build your own Python packages
+* deploy your own **private PyPi server**
+* **orchestrate** everything with **Airflow**
+* use the predictions to code a web app using **FastAPI** and **Streamlit**
+* use **Docker** to **containerize** your code
+* use **Great Expectations** to ensure **data validation and integrity**
 * monitor the performance of the predictions over time
-* deploy everything to GCP
-* build a CI/CD pipeline using GitHub Actions
+* deploy everything to **GCP**
+* build a **CI/CD** pipeline using **GitHub Actions**
 
 If that sounds like a lot, don't worry. After you cover this course, you will understand everything we said before. Most importantly, you will know WHY we used all these tools and how they work together as a system.
 
@@ -158,7 +158,7 @@ To follow the structure in its natural flow, read the folders in the following o
 6. `app-frontend` & `app-monitoring`
 7. `.github`
 
-**Read the Medium articles listed in the [Lessons & Tutorials](#lessons) section for the whole experience.**
+**Read the articles listed in the [Lessons & Tutorials](#lessons) section for the whole experience.**
 <br/>
 <br/>
 
