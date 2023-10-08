@@ -12,7 +12,7 @@ You will **learn how to build, train, serve, and monitor an ML system** using a 
 
 **At the end of the course, you will know how to build everything from the diagram below 👇**
 
-Don't worry if something doesn't make sense to you. We will explain everything in detail in the [Medium lessons](#lessons).
+Don't worry if something doesn't make sense to you. We will explain everything in detail in the [lessons](#lessons).
 
 
 ![image](https://github.com/Hg03/mlops-paul/assets/69637720/21e7cd54-dd1b-4629-aa95-ec57a3b78fd4)
@@ -22,8 +22,6 @@ Don't worry if something doesn't make sense to you. We will explain everything i
   <a href="https://youtu.be/OKk9U310qYE">
     <strong>Check out this short video to see what you will build during the course 👇</strong>
     <br/>
-    <br/>
-    <img src="images/screenshot_introduction_video.png" alt="Introduction Video" style="width:75%;">
   </a>
 </div>
 
@@ -203,14 +201,6 @@ poetry --version
 ```
 
 [If necessary, here are the official Poetry installation instructions.](https://python-poetry.org/docs/#installation)
-
-
-#### macOS M1/M2 Poetry Issues
-**!!!** If you have issues creating Poetry environments on macOS M1/M2 devices, [Hongnan Gao](https://github.com/gao-hongnan) implemented a script that will solve all the dependency issues. Just run the following before creating a Poetry environment:
-```shell
-bash scripts/install_poetry_macos_m1_chip.sh
-```
-
 
 ## Docker
 ##### ``<< free usage >>``
@@ -601,28 +591,6 @@ docker compose -f deploy/app-docker-compose.yml -f deploy/app-docker-compose.loc
 The code is under the MIT License. Thus, as long as you keep distributing the License, feel free to share, clone, or change the code as you like.
 
 Also, if you find any bugs or missing pieces in the documentation, I encourage you to add an issue on GitHub or a PR. Based on your support, I will adapt the code and docs for future readers.
-
-Furthermore, you can contact me directly on [LinkedIn](https://www.linkedin.com/in/pauliusztin/) if you have any questions.
-
-I also want to thank [Kurtis Pykes](https://github.com/kurtispykes) for being an awesome copilot and helping me make this course happen.
-
------
-
-### Let's connect if you want to level up in designing and productionizing ML systems:
-
-I post almost daily AI content on 👇🏼
-
-[<img alt="linkedin" width="40px" src="images/linkedin.png" align="left" style="padding-right:20px;"/>](https://www.linkedin.com/in/pauliusztin)
-[<img alt="medium" width="40px" src="images/medium.png" align="left" style="padding-right:20px;"/>](https://pauliusztin.medium.com/)
-[<img alt="substack" width="35px" src="images/substack.png" align="left" style="padding-right:20px;"/>](https://pauliusztin.substack.com/)
-[<img alt="gmail" width="40px" src="images/gmail.png" align="left" style="padding-right:20px;"/>](mailto:p.b.iusztin@gmail.com?subject=[From%20GitHub]%20ML%20Collaborations)
-[<img alt="twitter" width="40px" src="images/twitter.png" align="left" style="padding-right:20px;"/>](https://twitter.com/iusztinpaul)
-
-<br/>
-<br/>
-<br/>
-
-Subscribe to my [ML engineering weekly newsletter](https://pauliusztin.substack.com/).
 
 -----
 
