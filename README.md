@@ -108,10 +108,6 @@ Thus, instead of querying the API, we will mock the same behavior by loading the
 **---> All Rights Reserved to: www.energidataservice.dk**
 
 
-<p align="center">
-  <img src="images/forecasting_demo_screenshot.png">
-</p>
-
 The data points have an hourly resolution. For example: "2023–04–15 21:00Z", "2023–04–15 20:00Z", "2023–04–15 19:00Z", etc.
 
 We will model the data as multiple time series. Each unique price area and consumer type tuple represents its unique time series. 
@@ -290,7 +286,6 @@ At this step, you have to do 5 things:
 Your `bucket admin service account` should have assigned the following role: `Storage Object Admin`<br/>
 Your `bucket read-only service account` should have assigned the following role: `Storage Object Viewer`<br/>
 
-![Bucket Creation](images/gcp_gcs_screenshot.png)
 
 * [Docs for creating a bucket on GCP.](https://cloud.google.com/storage/docs/creating-buckets)<br/>
 * [Docs for creating a service account on GCP.](https://cloud.google.com/iam/docs/service-accounts-create)<br/>
@@ -390,9 +385,6 @@ Use the following default credentials to log in:
 * username: `airflow`
 * password: `airflow`
 
-<p align="center">
-  <img src="images/airflow_login_screenshot.png">
-</p>
 
 Before starting the pipeline DAG, you must deploy the modules to the private PyPi server. Go back to the `root folder` of the `energy-forecasting` repository and run the following to build and deploy the pipeline modules to your private PyPi server:
 ```shell
@@ -410,23 +402,14 @@ These are the three parameters you can configure with our suggested values:
 * `ml_pipeline_should_run_hyperparameter_tuning = False`
 <br/>
 
-<p align="center">
-  <img src="images/airflow_variables_screenshot.png">
-</p>
+
 
 Now, go to the `DAGS/All` section and search for the `ml_pipeline` DAG. Toggle the activation button. It should automatically start in a few seconds. Also, you can manually run it by hitting the play button from the top-right side of the `ml_pipeline` window.
 
-<p align="center">
-  <img src="images/airflow_ml_pipeline_dag_overview_screenshot.png">
-</p>
 
 That is it. You can run the entire pipeline with a single button if all the credentials are set up correctly. How cool is that?
 
 Here is what the DAG should look like 👇
-
-<p align="center">
-  <img src="images/airflow_ml_pipeline_dag_screenshot.png">
-</p>
 
 
 #### Clean Up
