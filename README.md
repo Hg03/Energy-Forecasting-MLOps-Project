@@ -15,9 +15,8 @@ You will **learn how to build, train, serve, and monitor an ML system** using a 
 Don't worry if something doesn't make sense to you. We will explain everything in detail in the [Medium lessons](#lessons).
 
 
-<p align="center">
-  <img src="images/architecture.png">
-</p>
+![image](https://github.com/Hg03/mlops-paul/assets/69637720/21e7cd54-dd1b-4629-aa95-ec57a3b78fd4)
+
 
 <div align="center">
   <a href="https://youtu.be/OKk9U310qYE">
