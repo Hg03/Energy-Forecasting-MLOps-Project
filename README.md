@@ -10,13 +10,10 @@ You will **learn how to build, train, serve, and monitor an ML system** using a 
 
 ------
 
-Following the **documentation on GitHub** and the [lessons on Medium](#lessons), you have *2.5 hours of reading & video materials*, which will help you understand every piece of the code!
-
 **At the end of the course, you will know how to build everything from the diagram below 👇**
 
 Don't worry if something doesn't make sense to you. We will explain everything in detail in the [Medium lessons](#lessons).
 
-If you are unsure if this course is for you, [here is an article presenting a high-level overview](https://pub.towardsai.net/the-full-stack-7-steps-mlops-framework-6599a0c6e295) of all the components you will build during the series.
 
 <p align="center">
   <img src="images/architecture.png">
