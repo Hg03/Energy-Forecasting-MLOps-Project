@@ -1,4 +1,4 @@
-# Data Validation for Quality and Integrity using GE. Model Performance Continuous Monitoring
+# Ensuring Trustworthy ML Systems With Data Validation and Real-Time Monitoring
 
 This tutorial represents **lesson 5 out of a 7-lesson course** that will walk you step-by-step through how to **design, implement, and deploy an ML system** using **MLOps good practices**. During the course, you will build a production-ready model to forecast energy consumption levels for the next 24 hours across multiple consumer types from Denmark.
 
